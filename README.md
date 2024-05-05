@@ -21,6 +21,20 @@ Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
 
 You will also see any lint errors in the console.
 
+## Overview
+
+### Real-time weather data retrieval
+Our app fetches real-time weather data for any city across the globe, providing users with the most up-to-date information available.
+
+### Comprehensive weather information
+Users can access both current weather conditions and detailed forecasts to plan their activities accordingly.
+
+### Immersive animations
+Upon launching the app and while scrolling through weather details, users are treated to visually stunning animations that enhance their experience.
+
+### Responsive design
+Our app is designed to adapt seamlessly to various screen sizes and devices, ensuring that users can access weather information conveniently no matter what device they're using.
+
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
