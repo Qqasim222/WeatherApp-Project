@@ -36,7 +36,7 @@ const MiniCard: FC<MiniCardProps> = ({ time, temp, iconString }) => {
     }
   }, [iconString]);
   return (
-    <div className="glassCard w-[10rem] h-[10rem] p-4 flex flex-col">
+    <div className="glassCard w-[8rem] h-[10rem] p-4 flex flex-col">
       <p className="text-center pb-2">
         {
           new Date(time * 1000)

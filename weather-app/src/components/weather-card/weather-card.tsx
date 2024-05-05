@@ -69,7 +69,7 @@ const WeatherCard: FC<WeatherCardProps> = ({
 
   return (
     <div
-      className="w-80 md:w-[22rem] md:min-w-[22rem] glassCard px-8 py-4 md:mt-6"
+      className="md:w-[22rem] md:min-w-[22rem] glassCard px-8 py-4 md:mt-6"
       data-aos="zoom-in"
     >
       <div className="flex w-full	items-center gap-4 mt-8 mb-8">
