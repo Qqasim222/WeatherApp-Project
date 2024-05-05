@@ -10,45 +10,11 @@ import "react-toastify/dist/ReactToastify.css";
 import SelectCityDropdown from "../components/select-city-dropdown/select-city-dropdown";
 import Loader from "../components/loader/loader";
 import { ICity } from "../interfaces/city.interface";
+import {WeatherData} from "../interfaces/weatherdata.interface"
 import MiniCard from "../components/mini-card/mini-card";
 // @ts-ignore
 import AOS from "aos";
 import "aos/dist/aos.css";
-
-interface WeatherData {
-  dt: number;
-  main: {
-    temp: number;
-    feels_like: number;
-    temp_min: number;
-    temp_max: number;
-    pressure: number;
-    sea_level: number;
-    grnd_level: number;
-    humidity: number;
-    temp_kf: number;
-  };
-  weather: {
-    id: number;
-    main: string;
-    description: string;
-    icon: string;
-  }[];
-  clouds: {
-    all: number;
-  };
-  wind: {
-    speed: number;
-    deg: number;
-    gust: number;
-  };
-  visibility: number;
-  pop: number;
-  sys: {
-    pod: string;
-  };
-  dt_txt: string;
-}
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -74,9 +40,9 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <>
+    <div>
       {loading && <Loader />}
-      <div className="w-full h-full text-white px-4 md:px-8">
+      <div className="w-full h-full text-white px-4 md:px-8 overflow-x-hidden">
         <ToastContainer position="top-right" autoClose={3000} />
         <nav className="w-full p-3 flex flex-col md:flex-col space-y-5 mt-7 md:mt-4 justify-center items-center">
           <h1 className="font-bold tracking-wide text-3xl text-center" data-aos="fade-left">
@@ -127,7 +93,7 @@ const Dashboard = () => {
           </div>
         </main>
       </div>
-    </>
+    </div>
   );
 };
 
