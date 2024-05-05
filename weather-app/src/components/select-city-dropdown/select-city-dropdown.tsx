@@ -11,7 +11,7 @@ interface SelectCityDropdownProps {
 }
 
 const SelectCityDropdownComponent: React.FC<SelectCityDropdownProps> = (props) => {
-    const [selected, setSelected] = useState(cities[0]);
+    const [selected, setSelected] = useState(cities[105949]);
     const [query, setQuery] = useState("");
     const [filteredCities, setFilteredCities] = useState(cities.slice(0, 100))
 

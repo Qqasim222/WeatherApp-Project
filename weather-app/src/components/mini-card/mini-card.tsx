@@ -44,7 +44,18 @@ const MiniCard: FC<MiniCardProps> = ({ time, temp, iconString }) => {
       <div className='w-full flex justify-center items-center flex-1'>
         <img src={icon} alt="forecast not available" className='w-[4rem] h-[4rem]' />
       </div>
-      <p className='text-center font-bold'>{temp}&deg;C</p>
+      <p className="font-bold flex justify-center items-center">
+      <p className='text-center font-bold'>{`${(temp - 273.15).toFixed(2)}`}</p>
+      <p className="relative ml-1">
+            <span className="absolute">
+              <span className="relative flex">
+                <span className="animate-ping absolute inline-flex w-[4px] h-[4px] rounded-full bg-white opacity-75"></span>
+                <span className="relative inline-flex rounded-full w-[4px] h-[4px] bg-white"></span>
+              </span>
+            </span>
+            <p>C</p>
+          </p>
+          </p>
     </div>
   )
 }
