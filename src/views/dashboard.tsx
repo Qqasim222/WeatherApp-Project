@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import SelectCityDropdown from "../components/select-city-dropdown/select-city-dropdown";
 import Loader from "../components/loader/loader";
 import { ICity } from "../interfaces/city.interface";
-import {WeatherData} from "../interfaces/weatherdata.interface"
+import { WeatherData } from "../interfaces/weatherdata.interface";
 import MiniCard from "../components/mini-card/mini-card";
 // @ts-ignore
 import AOS from "aos";
@@ -45,7 +45,10 @@ const Dashboard = () => {
       <div className="w-full h-full text-white px-4 md:px-8 overflow-x-hidden">
         <ToastContainer position="top-right" autoClose={3000} />
         <nav className="w-full p-3 flex flex-col md:flex-col space-y-5 mt-7 md:mt-4 justify-center items-center">
-          <h1 className="font-bold tracking-wide text-3xl text-center" data-aos="fade-left">
+          <h1
+            className="font-bold tracking-wide text-3xl text-center"
+            data-aos="fade-left"
+          >
             Weather App
           </h1>
           <div data-aos="fade-right" className="z-10">

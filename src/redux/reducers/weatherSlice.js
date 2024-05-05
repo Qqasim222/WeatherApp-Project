@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+// Async thunk to fetch weather data
 export const fetchWeatherData = createAsyncThunk(
   "weather/fetchWeatherData",
   async (place, { rejectWithValue }) => {
@@ -14,16 +15,16 @@ export const fetchWeatherData = createAsyncThunk(
       const data = await response.json();
       return data;
     } catch (error) {
-      // Instead of returning just the error message, return the entire error object
       return rejectWithValue(error);
     }
   }
 );
 
+// Redux slice for weather data
 export const weatherSlice = createSlice({
   name: "weather",
   initialState: {
-    data: JSON.parse(localStorage.getItem("weatherData")) || {}, // Load data from localStorage
+    data: JSON.parse(localStorage.getItem("weatherData")) || {},
     place: "lahore",
     loading: false,
     error: null,
@@ -46,13 +47,13 @@ export const weatherSlice = createSlice({
         state.data = action.payload;
         state.loading = false;
         state.error = null;
-        localStorage.setItem("weatherData", JSON.stringify(action.payload)); // Save data to localStorage
+        localStorage.setItem("weatherData", JSON.stringify(action.payload));  // Save data to localStorage
       })
       .addCase(fetchWeatherData.rejected, (state) => {
         state.loading = false;
-        state.error = true; // Set error to true
+        state.error = true;  // Set error to true
 
-        // Reset other states
+         // Reset other states
         state.data = JSON.parse(localStorage.getItem("weatherData")) || {};
         state.place = "lahore"; // Assuming "lahore" is the default place
       });

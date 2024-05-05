@@ -26,7 +26,7 @@ const SelectCityDropdownComponent: React.FC<SelectCityDropdownProps> = (
     const filteredCities =
       query === ""
         ? cities
-        : cities.filter((city: any) =>
+        : cities.filter((city: string) =>
             city.name
               ?.toLowerCase()
               .replace(/\s+/g, "")
@@ -42,8 +42,6 @@ const SelectCityDropdownComponent: React.FC<SelectCityDropdownProps> = (
   useEffect(() => {
     props.setCity(selected);
   }, [selected]);
-
-  console.log("")
 
   return (
     <div className="w-72 z-50">
