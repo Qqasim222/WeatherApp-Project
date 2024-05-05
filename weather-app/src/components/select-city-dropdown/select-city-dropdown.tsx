@@ -43,6 +43,8 @@ const SelectCityDropdownComponent: React.FC<SelectCityDropdownProps> = (
     props.setCity(selected);
   }, [selected]);
 
+  console.log("")
+
   return (
     <div className="w-72 z-50">
       <Combobox value={selected} onChange={setSelected}>
