@@ -35,6 +35,9 @@ Upon launching the app and while scrolling through weather details, users are tr
 ### Responsive design
 Our app is designed to adapt seamlessly to various screen sizes and devices, ensuring that users can access weather information conveniently no matter what device they're using.
 
+### Extended forecast availability
+Despite challenges, our app provides users with access to extended forecast data for up to four days, offering valuable insights into future weather patterns and trends.
+
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
