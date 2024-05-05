@@ -12,7 +12,7 @@ export const fetchWeatherData = createAsyncThunk(
         throw new Error("Failed to fetch data");
       }
       const data = await response.json();
-      console.log("data === ", data)
+      console.log("data === ", data);
       return data;
     } catch (error) {
       // Instead of returning just the error message, return the entire error object
@@ -52,13 +52,11 @@ export const weatherSlice = createSlice({
       .addCase(fetchWeatherData.rejected, (state) => {
         state.loading = false;
         state.error = true; // Set error to true
-      
+
         // Reset other states
-        state.data =  JSON.parse(localStorage.getItem("weatherData")) || {}
+        state.data = JSON.parse(localStorage.getItem("weatherData")) || {};
         state.place = "lahore"; // Assuming "lahore" is the default place
-      })
-      
-      
+      });
   },
 });
 

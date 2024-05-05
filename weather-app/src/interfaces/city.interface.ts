@@ -5,5 +5,5 @@ export interface ICity {
   country: string;
   admin1: string;
   admin2: string;
-  id: number
+  id: number;
 }

@@ -78,9 +78,13 @@ const Dashboard = () => {
       {loading && <Loader />}
       <div className="w-full h-full text-white px-4 md:px-8">
         <ToastContainer position="top-right" autoClose={3000} />
-        <nav className="w-full p-3 flex flex-col md:flex-col space-y-5 mt-7 md:mt-4 justify-between items-center" >
-          <h1 className="font-bold tracking-wide text-3xl" data-aos="fade-left">Weather App</h1>
-          <SelectCityDropdown setCity={submitCity} />
+        <nav className="w-full p-3 flex flex-col md:flex-col space-y-5 mt-7 md:mt-4 justify-between items-center">
+          <h1 className="font-bold tracking-wide text-3xl" data-aos="fade-left">
+            Weather App
+          </h1>
+          <div data-aos="fade-right" className="z-10">
+            <SelectCityDropdown setCity={submitCity} />
+          </div>
         </nav>
         <div className="">
           <BackgroundLayout
@@ -91,7 +95,7 @@ const Dashboard = () => {
             }
           />
         </div>
-        <main className="w-full flex flex-col flex-wrap py-4 items-center justify-center">
+        <main className="w-full flex flex-col flex-wrap py-1 items-center justify-center">
           {todayForeCast && (
             <WeatherCard
               place={data?.city?.name}
@@ -104,7 +108,7 @@ const Dashboard = () => {
               conditions={todayForeCast.weather[0].main}
             />
           )}
-          <div className="flex justify-center gap-8 flex-wrap mt-12">
+          <div className="flex justify-center gap-8 flex-wrap my-10">
             {foreCast?.map((f, index) => (
               <div
                 key={index}

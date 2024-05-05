@@ -10,17 +10,19 @@
   box-sizing: border-box;
 }
 
-.glassCard{
+.glassCard {
   background: rgba(0, 0, 0, 0.4);
 
-  box-shadow:  0 8px 32px 0 rgba(31,38,135,0.37);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   /* backdrop-filter: blur(8px); */
   /* -webkit-backdrop-filter: blur(8px); */
   border-radius: 10px;
-  border: 1px solid rgba(225,225,225,0.18);
+  border: 1px solid rgba(225, 225, 225, 0.18);
 }
 
-#root, body, html{
+#root,
+body,
+html {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;

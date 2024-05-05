@@ -63,12 +63,15 @@ const WeatherCard: FC<WeatherCardProps> = ({
     }
   }, [iconString]);
 
-  useEffect(()=> {
-    AOS.init({duration:3000})
-  },[])
+  useEffect(() => {
+    AOS.init({ duration: 3000 });
+  }, []);
 
   return (
-    <div className="w-80 md:w-[22rem] md:min-w-[22rem] glassCard px-8 py-4 md:mt-6"   data-aos="zoom-in">
+    <div
+      className="w-80 md:w-[22rem] md:min-w-[22rem] glassCard px-8 py-4 md:mt-6"
+      data-aos="zoom-in"
+    >
       <div className="flex w-full	items-center gap-4 mt-8 mb-8">
         <img src={icon} alt="weather_icon" />
         <p className="font-bold text-3xl md:ml-4 md:text-4xl flex justify-center items-center">

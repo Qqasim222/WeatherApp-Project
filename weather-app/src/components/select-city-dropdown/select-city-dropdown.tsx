@@ -1,8 +1,12 @@
 import { Fragment, memo, useState } from "react";
 import { Combobox, Transition } from "@headlessui/react";
-import { CheckIcon, ChevronDownIcon, MagnifyingGlassIcon } from "@heroicons/react/20/solid";
+import {
+  CheckIcon,
+  ChevronDownIcon,
+  MagnifyingGlassIcon,
+} from "@heroicons/react/20/solid";
 import { useEffect } from "react";
-import cities from 'cities.json';
+import cities from "cities.json";
 
 import { ICity } from "../../interfaces/city.interface";
 
@@ -10,38 +14,42 @@ interface SelectCityDropdownProps {
   setCity: (city: ICity) => void;
 }
 
-const SelectCityDropdownComponent: React.FC<SelectCityDropdownProps> = (props) => {
-    const [selected, setSelected] = useState(cities[105949]);
-    const [query, setQuery] = useState("");
-    const [filteredCities, setFilteredCities] = useState(cities.slice(0, 100))
+const SelectCityDropdownComponent: React.FC<SelectCityDropdownProps> = (
+  props
+) => {
+  const [selected, setSelected] = useState<ICity[]>(cities[105949]);
+  const [query, setQuery] = useState("");
+  const [filteredCities, setFilteredCities] = useState<ICity[]>(cities.slice(0, 100));
 
-    useEffect(() => {
-        const filteredCities = query === ''
-          ? cities
-          : cities.filter((city) => 
-            city.name
-                ?.toLowerCase()
-                .replace(/\s+/g, '')
-                .includes(query?.toLowerCase().replace(/\s+/g, ''))
-            );
-            setFilteredCities(filteredCities.slice(0, 100))
-      }, [query]);
-    
-      useEffect(() => {
-        props.setCity(selected)
-      }, [selected])
 
   useEffect(() => {
-    props.setCity(selected)
-  }, [selected])
+    const filteredCities =
+      query === ""
+        ? cities
+        : cities.filter((city) =>
+            city.name
+              ?.toLowerCase()
+              .replace(/\s+/g, "")
+              .includes(query?.toLowerCase().replace(/\s+/g, ""))
+          );
+    setFilteredCities(filteredCities.slice(0, 100));
+  }, [query]);
+
+  useEffect(() => {
+    props.setCity(selected);
+  }, [selected]);
+
+  useEffect(() => {
+    props.setCity(selected);
+  }, [selected]);
 
   return (
     <div className="w-72 z-50">
       <Combobox value={selected} onChange={setSelected}>
         <div className="relative mt-1">
-        <div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
+          <div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
             <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
-                <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" />
+              <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" />
             </div>
             <Combobox.Input
               className="w-full focus:outline-none border-none py-2 pl-10 pr-10 text-sm leading-5 text-gray-900 focus:ring-0"
@@ -107,7 +115,7 @@ const SelectCityDropdownComponent: React.FC<SelectCityDropdownProps> = (props) =
       </Combobox>
     </div>
   );
-}
+};
 
 const SelectCityDropdown = memo(SelectCityDropdownComponent);
 export default SelectCityDropdown;
