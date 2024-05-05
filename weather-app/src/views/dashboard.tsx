@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // @ts-expect-error
 import { fetchWeatherData, setPlace } from "../redux/reducers/weatherSlice";
@@ -10,7 +11,9 @@ import SelectCityDropdown from "../components/select-city-dropdown/select-city-d
 import Loader from "../components/loader/loader";
 import { ICity } from "../interfaces/city.interface";
 import MiniCard from "../components/mini-card/mini-card";
-import { useEffect, useState } from "react";
+// @ts-ignore
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 interface WeatherData {
   dt: number;
@@ -66,13 +69,17 @@ const Dashboard = () => {
     }
   }, [data]);
 
+  useEffect(() => {
+    AOS.init({ duration: 3000 });
+  }, []);
+
   return (
     <>
       {loading && <Loader />}
       <div className="w-full h-full text-white px-4 md:px-8">
         <ToastContainer position="top-right" autoClose={3000} />
-        <nav className="w-full p-3 flex flex-col md:flex-col space-y-5 mt-7 md:mt-4 justify-between items-center">
-          <h1 className="font-bold tracking-wide text-3xl">Weather App</h1>
+        <nav className="w-full p-3 flex flex-col md:flex-col space-y-5 mt-7 md:mt-4 justify-between items-center" >
+          <h1 className="font-bold tracking-wide text-3xl" data-aos="fade-left">Weather App</h1>
           <SelectCityDropdown setCity={submitCity} />
         </nav>
         <div className="">
@@ -98,8 +105,14 @@ const Dashboard = () => {
             />
           )}
           <div className="flex justify-center gap-8 flex-wrap mt-12">
-            {foreCast.map((f, index) => (
-              <div key={index} className="mini-card">
+            {foreCast?.map((f, index) => (
+              <div
+                key={index}
+                className="mini-card"
+                data-aos={
+                  index === 0 || index === 1 ? "fade-right" : "fade-left"
+                }
+              >
                 <MiniCard
                   time={f.dt}
                   iconString={f.weather[0].main}

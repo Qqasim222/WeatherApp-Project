@@ -5,6 +5,9 @@ import fog from "../../assets/icons/fog.png";
 import rain from "../../assets/icons/rain.png";
 import snow from "../../assets/icons/snow.png";
 import storm from "../../assets/icons/storm.png";
+// @ts-ignore
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "../../index.css";
 
 interface WeatherCardProps {
@@ -60,8 +63,12 @@ const WeatherCard: FC<WeatherCardProps> = ({
     }
   }, [iconString]);
 
+  useEffect(()=> {
+    AOS.init({duration:3000})
+  },[])
+
   return (
-    <div className="w-80 md:w-[22rem] md:min-w-[22rem] glassCard px-8 py-4 md:mt-6">
+    <div className="w-80 md:w-[22rem] md:min-w-[22rem] glassCard px-8 py-4 md:mt-6"   data-aos="zoom-in">
       <div className="flex w-full	items-center gap-4 mt-8 mb-8">
         <img src={icon} alt="weather_icon" />
         <p className="font-bold text-3xl md:ml-4 md:text-4xl flex justify-center items-center">
