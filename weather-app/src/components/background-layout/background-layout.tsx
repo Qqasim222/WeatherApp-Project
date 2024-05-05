@@ -1,24 +1,23 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { FC, useEffect, useState } from "react";
-import Clear from "../../assets/images/Clear.jpg";
+import ClearWeather from "../../assets/images/Clear.jpg";
 import Fog from "../../assets/images/fog.jpg";
 import Cloudy from "../../assets/images/Cloudy.jpg";
 import Rainy from "../../assets/images/Rainy.jpg";
 import Snow from "../../assets/images/snow.jpg";
 import Stormy from "../../assets/images/Stormy.jpg";
 import Haze from "../../assets/images/haze.jpg";
-
 interface BackgroundLayoutProps {
   iconString: string;
 }
 const BackgroundLayout: FC<BackgroundLayoutProps> = ({ iconString }) => {
-  const [image, setImage] = useState(Clear);
+  const [image, setImage] = useState(ClearWeather);
 
   useEffect(() => {
     if (iconString) {
       const imageString = iconString;
       if (imageString?.toLowerCase().includes("clear")) {
-        setImage(Clear);
+        setImage(ClearWeather);
       } else if (imageString?.toLowerCase().includes("cloud")) {
         setImage(Cloudy);
       } else if (

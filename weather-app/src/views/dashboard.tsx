@@ -86,7 +86,7 @@ const Dashboard = () => {
             <SelectCityDropdown setCity={submitCity} />
           </div>
         </nav>
-        <div className="">
+        <div>
           <BackgroundLayout
             iconString={
               data.list && data.list[0]?.weather

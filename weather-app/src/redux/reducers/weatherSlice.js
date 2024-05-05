@@ -12,7 +12,6 @@ export const fetchWeatherData = createAsyncThunk(
         throw new Error("Failed to fetch data");
       }
       const data = await response.json();
-      console.log("data === ", data);
       return data;
     } catch (error) {
       // Instead of returning just the error message, return the entire error object

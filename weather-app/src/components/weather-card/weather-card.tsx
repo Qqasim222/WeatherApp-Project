@@ -9,7 +9,6 @@ import storm from "../../assets/icons/storm.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../../index.css";
-
 interface WeatherCardProps {
   temperature: number;
   windSpeed: number;

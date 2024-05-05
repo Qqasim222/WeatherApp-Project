@@ -7,7 +7,6 @@ import {
 } from "@heroicons/react/20/solid";
 import { useEffect } from "react";
 import cities from "cities.json";
-
 import { ICity } from "../../interfaces/city.interface";
 
 interface SelectCityDropdownProps {
@@ -19,14 +18,15 @@ const SelectCityDropdownComponent: React.FC<SelectCityDropdownProps> = (
 ) => {
   const [selected, setSelected] = useState<ICity[]>(cities[105949]);
   const [query, setQuery] = useState("");
-  const [filteredCities, setFilteredCities] = useState<ICity[]>(cities.slice(0, 100));
-
+  const [filteredCities, setFilteredCities] = useState<ICity[]>(
+    (cities as ICity[]).slice(0, 100)
+  );
 
   useEffect(() => {
     const filteredCities =
       query === ""
         ? cities
-        : cities.filter((city) =>
+        : cities.filter((city: any) =>
             city.name
               ?.toLowerCase()
               .replace(/\s+/g, "")
@@ -76,9 +76,9 @@ const SelectCityDropdownComponent: React.FC<SelectCityDropdownProps> = (
                   Nothing found.
                 </div>
               ) : (
-                filteredCities.map((city: ICity) => (
+                filteredCities?.map((city: ICity, index) => (
                   <Combobox.Option
-                    key={city.id}
+                    key={index}
                     className={({ active }) =>
                       `relative cursor-default select-none py-2 pl-10 pr-4 ${
                         active ? "bg-teal-600 text-white" : "text-gray-900"
